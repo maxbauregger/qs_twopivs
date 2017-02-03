@@ -7,28 +7,29 @@ def quicksort(A, l, r):
 		quicksort(A, qtwo + 1, r)
 
 def partition(A, l, r):
-	x = A[r]
-	y = A[l]
+	qone = l
+	qtwo = r
+	if(A[qone] > A[qtwo]):
+		A[qone], A[qtwo] = A[qtwo], A[qone]
+	if  l + 1 == r:
+		return qone, qtwo
 	i = l
 
 	for j in range(l + 1, r):
-		if A[j] <= x:
+		if A[j] <= A[qtwo]:
 			i = i + 1
 			A[i], A[j] = A[j], A[i]
-
-	A[i + 1], A[r] = A[r], A[i + 1]
-
 	qtwo = i + 1
-	i = l
+	A[qtwo], A[r] = A[r], A[qtwo]
 
+	i = l
 	for j in range(l + 1, qtwo):
-		if A[j] >= y:
+		if A[j] <= A[qone]:
 			i = i + 1
 			A[i], A[j] = A[j], A[i]
 
-	A[i + 1], A[l] = A[l], A[i + 1]
-	qone =  i + 1
-
+	qone = i
+	A[qone], A[l] = A[l], A[qone]
 	return qone, qtwo
 
 if __name__ == '__main__':
