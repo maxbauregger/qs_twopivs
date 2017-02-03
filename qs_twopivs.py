@@ -1,4 +1,6 @@
 #!/usr/bin/python
+import random
+
 def quicksort(A, l, r):
 	if l < r:
 		qone, qtwo = partition(A, l, r)
@@ -31,8 +33,10 @@ def partition(A, l, r):
 	return qone, qtwo
 
 if __name__ == '__main__':
-	inputlist = [8,7,11,16,2,5,3,1,12]
+	inputlist = list(range(1,100))
+	random.shuffle(inputlist)
 	print("List: ", inputlist)
 	quicksort(inputlist, 0, len(inputlist) - 1)
 	print("Sorted list:", inputlist)
+	print("is sorted? ", sorted(inputlist) == inputlist)
 
