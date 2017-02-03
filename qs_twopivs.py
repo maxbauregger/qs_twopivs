@@ -11,8 +11,6 @@ def partition(A, l, r):
 	qtwo = r
 	if(A[qone] > A[qtwo]):
 		A[qone], A[qtwo] = A[qtwo], A[qone]
-	if  l + 1 == r:
-		return qone, qtwo
 	i = l
 
 	for j in range(l + 1, r):
